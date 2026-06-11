@@ -1,3 +1,4 @@
+using AdventureGraphQL.Api;
 using AdventureGraphQL.Api.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ builder.Services.AddPooledDbContextFactory<AdventureWorksContext>(opt =>
 builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
+    .AddTypeExtension<ProductExtensions>()
     .AddMutationType<Mutation>()
     .AddSubscriptionType<Subscription>()
     .AddInMemorySubscriptions()
